@@ -34,7 +34,7 @@ export function countTotalScore(scores: string): number {
         if (i< 9){
           strikeExtra = 10 + pinsFallen[i + 1][0] + pinsFallen[i+1][1];
         }
-        if (i === 9){
+        if (i === 9){ // if strike in last frame
           strikeExtra = pinsFallen[10][0] + pinsFallen[10][1];
         }
         frameScore = 10 + strikeExtra
@@ -45,14 +45,14 @@ export function countTotalScore(scores: string): number {
         frameScore = 10 + spareExtra;
       }
       if (i === 9) {
-        const spareExtra = pinsFallen[10][0]; // if spare
+        const spareExtra = pinsFallen[10][0]; // if spare in last frame
         frameScore =  spareExtra;
       }
     }
   }
-    
+  
     totalScore += frameScore;
-    console.log(i + " " + frameScore);
+
   })
   
   return totalScore;
